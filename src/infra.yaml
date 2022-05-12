@@ -17,39 +17,39 @@ services:
     ports:
       - "27017:27017" # Important: In a production environment your should remove the external port
 
-  rabbitmq.broker:
-    container_name: finlex-task-rabbitmq
-    image: rabbitmq:3.7.7-management-alpine
-    ports:
-      - "15672:15672" # Important: In a production environment your should remove the external port
-      - "5672:5672" # Important: In a production environment your should remove the external port
+#  rabbitmq.broker:
+#    container_name: finlex-task-rabbitmq
+#    image: rabbitmq:3.7.7-management-alpine
+#    ports:
+#      - "15672:15672" # Important: In a production environment your should remove the external port
+#      - "5672:5672" # Important: In a production environment your should remove the external port
 
-  redis.cache:
-    container_name: finlex-task-redis
-    image: redis:alpine
-    ports:
-      - "6379:6379"
+#  redis.cache:
+#    container_name: finlex-task-redis
+#    image: redis:alpine
+#    ports:
+#      - "6379:6379"
 
-  seq.log:
-    container_name: finlex-task-seq
-    image: datalust/seq:latest
-    ports:
-      - "5341:4341"
+#  seq.log:
+#    container_name: finlex-task-seq
+#    image: datalust/seq:latest
+#    ports:
+#      - "5341:4341"
       
-      # orders.api:
-      # container_name: finlex-task-orders-api
-      # restart: always
-      # image: finlex-task-orders-api
-      # build:
-      # context: .
-      # dockerfile: Orders.Api/Dockerfile
-      # depends_on:
-      # - mssql.data
-      # - rabbitmq.broker
-      # - nosql.data
-      # - redis.cache
-      # ports:
-      # - "5000:80"
-      # - "5443:443"
-      # environment:
-      # - ASPNETCORE_ENVIRONMENT=Docker
+# orders.api:
+# container_name: finlex-task-orders-api
+# restart: always
+# image: finlex-task-orders-api
+# build:
+# context: .
+# dockerfile: Orders.Api/Dockerfile
+# depends_on:
+# - mssql.data
+# - rabbitmq.broker
+# - nosql.data
+# - redis.cache
+# ports:
+# - "5000:80"
+# - "5443:443"
+# environment:
+# - ASPNETCORE_ENVIRONMENT=Dock
