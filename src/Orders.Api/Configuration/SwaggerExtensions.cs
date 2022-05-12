@@ -18,7 +18,7 @@ internal static class SwaggerExtensions
                         Title = "Finlex Orders API",
                         Version = "v1",
                         Description =
-                            "A simple ASP.NET DDD/CQRS example implemented based on the task definition provided ny Mr. Shahrestani"
+                            "A simple ASP.NET DDD/CQRS example implemented based on the task definition provided by Mr. Shahrestani"
                     }
                 );
 

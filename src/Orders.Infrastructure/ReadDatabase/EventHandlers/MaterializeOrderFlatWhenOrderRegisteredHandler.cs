@@ -23,17 +23,10 @@ public class MaterializeOrderFlatWhenOrderRegisteredHandler : INotificationHandl
         CancellationToken cancellationToken
     )
     {
-        // todo : read model has some design problems now.
-        // return;
         var person = await _readDbContext.PersonFlatMaterializedView
             .Find(p => p.Email == notification.CreatedBy)
             .FirstOrDefaultAsync(cancellationToken: cancellationToken);
 
-        if (person is null)
-        {
-            throw new InvalidOperationException("Person has not yet persisted in database.");
-        }
-        
         var order = new OrderFlatQueryModel
         {
             Id = Guid.NewGuid(),

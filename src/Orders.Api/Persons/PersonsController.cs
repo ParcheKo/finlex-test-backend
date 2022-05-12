@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Orders.Application.Persons;
-using Orders.Application.Persons.GetPersons;
+using Orders.Infrastructure.Query.Persons.GetPersons;
 
 namespace Orders.Api.Persons
 {

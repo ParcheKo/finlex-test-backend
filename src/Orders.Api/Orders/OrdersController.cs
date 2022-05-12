@@ -6,9 +6,9 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Orders.Application.Orders;
-using Orders.Application.Orders.GetOrders;
-using Orders.Application.Orders.GetOrdersByEmail;
 using Orders.Application.Orders.RegisterOrder;
+using Orders.Infrastructure.Query.Orders.GetOrders;
+using Orders.Infrastructure.Query.Orders.GetOrdersByEmail;
 
 namespace Orders.Api.Orders;
 
