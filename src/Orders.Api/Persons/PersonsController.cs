@@ -34,7 +34,6 @@ namespace Orders.Api.Persons
             );
 
             return Ok(persons);
-        }  
+        }
     }
 }
-

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Orders.Api.Orders.Dtos;
 using Orders.Application.Orders;
 using Orders.Application.Orders.RegisterOrder;
 using Orders.Infrastructure.Query.Orders.GetOrders;
