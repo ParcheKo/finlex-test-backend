@@ -28,6 +28,7 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
             PersonId = notification.PersonId.Value,
             Email = notification.Email,
             Name = notification.Name,
+            // todo: materialize other fields of this on order-registered event handler
         };
 
         await _readDbContext.PersonFlatMaterializedView.InsertOneAsync(
