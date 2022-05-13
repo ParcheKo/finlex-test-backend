@@ -14,7 +14,7 @@ public class OrderDateMustBeTodayOrBefore : IBusinessRule
 
     public bool IsBroken()
     {
-        return _orderDate.Date > DateTime.Today;
+        return _orderDate.Date > DateTime.UtcNow.Date;
     }
 
     public string Message => "Order date can not be after today.";
