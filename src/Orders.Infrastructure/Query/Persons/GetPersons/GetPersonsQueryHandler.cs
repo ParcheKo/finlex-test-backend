@@ -37,7 +37,7 @@ internal sealed class GetPersonsQueryHandler : IQueryHandler<GetPersonsQuery, Li
                 Email = p.Email,
                 Name = p.Name,
                 OrderCount = p.OrderCount,
-                TotalPrice = p.TotalPrice,
+                TotalPrice = p.TotalShopping,
                 HighestOrderTotalPrice = p.HighestOrderTotalPrice,
                 FirstShoppingDate = p.FirstShoppingDate,
                 LastShoppingDate = p.LastShoppingDate,
