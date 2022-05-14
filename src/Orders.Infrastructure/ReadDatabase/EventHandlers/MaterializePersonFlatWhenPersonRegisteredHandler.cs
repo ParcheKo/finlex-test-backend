@@ -25,7 +25,7 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
         var person = new PersonFlatQueryModel()
         {
             Id = Guid.NewGuid(),
-            PersonId = notification.PersonId.Value,
+            PersonId = notification.PersonId,
             Email = notification.Email,
             Name = notification.Name,
             // todo: materialize other fields of this on order-registered event handler

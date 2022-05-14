@@ -30,7 +30,7 @@ public class MaterializeOrderFlatWhenOrderRegisteredHandler : INotificationHandl
         var order = new OrderFlatQueryModel
         {
             Id = Guid.NewGuid(),
-            OrderId = notification.OrderId.Value,
+            OrderId = notification.OrderId,
             OrderDate = notification.OrderDate,
             CreatedBy = notification.CreatedBy,
             OrderNo = notification.OrderNo,

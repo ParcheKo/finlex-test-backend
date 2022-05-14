@@ -31,7 +31,7 @@ public class Order : Entity, IAggregateRoot
 
         AddDomainEvent(
             new OrderRegisteredEvent(
-                new OrderId(Guid.NewGuid()),
+                Id.Value,
                 CreatedBy.Value,
                 OrderDate,
                 OrderNo,

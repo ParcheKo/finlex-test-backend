@@ -5,9 +5,8 @@ namespace Orders.Domain.Orders.Events;
 
 public class OrderRegisteredEvent : DomainEventBase
 {
-    // todo: put [JsonConstructor] if any problem
     public OrderRegisteredEvent(
-        OrderId orderId,
+        Guid orderId,
         string createdBy,
         DateTime orderDate,
         string orderNo,
@@ -27,7 +26,7 @@ public class OrderRegisteredEvent : DomainEventBase
         TotalPrice = totalPrice;
     }
 
-    public OrderId OrderId { get; }
+    public Guid OrderId { get; }
     public string CreatedBy { get; }
 
     public DateTime OrderDate { get; }

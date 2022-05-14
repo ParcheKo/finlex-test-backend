@@ -20,7 +20,13 @@ public class Person : Entity, IAggregateRoot
         Email = email;
         Name = name;
 
-        AddDomainEvent(new PersonRegistered(Id, Email.Value, Name));
+        AddDomainEvent(
+            new PersonRegistered(
+                Id.Value,
+                Email.Value,
+                Name
+            )
+        );
     }
 
     public PersonId Id { get; private set; }

@@ -1,10 +1,12 @@
-﻿using Orders.Domain.SeedWork;
+﻿using System;
+using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Persons;
 
 public class PersonRegistered : DomainEventBase
 {
-    public PersonRegistered(PersonId personId,
+    public PersonRegistered(
+        Guid personId,
         string email,
         string name
     )
@@ -14,7 +16,7 @@ public class PersonRegistered : DomainEventBase
         Name = name;
     }
 
-    public PersonId PersonId { get; }
-    public string Email { get;  }
-    public string Name { get;  }
+    public Guid PersonId { get; }
+    public string Email { get; }
+    public string Name { get; }
 }
