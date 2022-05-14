@@ -166,6 +166,7 @@ public class OrderTests : TestBase
             orderRegisteredEvent.CreatedBy.Should().Be(createdBy);
         }
 
+        [Test]
         public void order_properties_must_have_been_set()
         {
             const string createdBy = "test@test.com";
@@ -188,7 +189,7 @@ public class OrderTests : TestBase
             );
 
             order.OrderDate.Should().Be(today);
-            order.CreatedBy.Should().Be(createdBy);
+            order.CreatedBy.Value.Should().Be(createdBy);
             order.OrderNo.Should().Be(orderNo);
             order.ProductName.Should().Be(productName);
             order.Total.Should().Be(total);

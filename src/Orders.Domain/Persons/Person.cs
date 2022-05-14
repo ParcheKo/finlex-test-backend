@@ -21,7 +21,7 @@ public class Person : Entity, IAggregateRoot
         Name = name;
 
         AddDomainEvent(
-            new PersonRegistered(
+            new PersonRegisteredEvent(
                 Id.Value,
                 Email.Value,
                 Name

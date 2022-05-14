@@ -3,9 +3,9 @@ using Orders.Domain.SeedWork;
 
 namespace Orders.Domain.Persons;
 
-public class PersonRegistered : DomainEventBase
+public class PersonRegisteredEvent : DomainEventBase
 {
-    public PersonRegistered(
+    public PersonRegisteredEvent(
         Guid personId,
         string email,
         string name

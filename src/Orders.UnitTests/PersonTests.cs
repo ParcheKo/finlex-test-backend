@@ -58,7 +58,7 @@ public class PersonTests : TestBase
                 emailIsUnique
             );
 
-            AssertPublishedDomainEvent<PersonRegistered>(person);
+            AssertPublishedDomainEvent<PersonRegisteredEvent>(person);
         }
     }
 }

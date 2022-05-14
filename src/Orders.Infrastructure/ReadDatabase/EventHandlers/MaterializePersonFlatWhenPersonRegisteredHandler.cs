@@ -8,7 +8,7 @@ using Orders.Infrastructure.ReadDatabase.MongoDb;
 
 namespace Orders.Infrastructure.ReadDatabase.EventHandlers;
 
-public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHandler<PersonRegistered>
+public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHandler<PersonRegisteredEvent>
 {
     private readonly ReadDbContext _readDbContext;
 
@@ -18,7 +18,7 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
     }
 
     public async Task Handle(
-        PersonRegistered notification,
+        PersonRegisteredEvent notification,
         CancellationToken cancellationToken
     )
     {
@@ -28,7 +28,6 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
             PersonId = notification.PersonId,
             Email = notification.Email,
             Name = notification.Name,
-            // todo: materialize other fields of this on order-registered event handler
         };
 
         await _readDbContext.PersonFlatMaterializedView.InsertOneAsync(
