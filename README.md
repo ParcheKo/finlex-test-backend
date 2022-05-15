@@ -136,6 +136,7 @@ Let's take it for a spin :-)
    ```shell
    dotnet run --project .\Orders.Api
    ```
+API and swagger documentation can now be accessed on http://localhost:5101.
 
 ## Usage
 
