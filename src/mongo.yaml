@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  nosql.data:
+    container_name: finlex-task-mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017" # Important: In a production environment your should remove the external port
+
+#  seq.log:
+#    container_name: finlex-task-seq
+#    image: datalust/seq:latest
+#    ports:
+#      - "5341:4341"
