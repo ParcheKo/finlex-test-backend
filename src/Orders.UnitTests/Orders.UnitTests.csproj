@@ -31,4 +31,8 @@
     <ProjectReference Include="..\Orders.Domain\Orders.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SharedKernel" />
+  </ItemGroup>
+
 </Project>
