@@ -21,7 +21,8 @@ internal sealed class OrderEntityTypeConfiguration : IEntityTypeConfiguration<Or
         builder.Property(p => p.OrderDate).HasColumnType(nameof(SqlDbType.DateTime2));
         builder.OwnsOne(p => p.CreatedBy)
             .Property(p => p.Value).HasColumnName(nameof(Order.CreatedBy).ToSnakeCase())
-            .HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(150);
+            .HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(150)
+            .IsRequired();
         builder.Property(p => p.OrderNo).HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(50);
         builder.Property(p => p.ProductName).HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(100);
         builder.Property(p => p.Total).HasColumnType(nameof(SqlDbType.Int));

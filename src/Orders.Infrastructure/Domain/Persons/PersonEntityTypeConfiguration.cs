@@ -24,7 +24,8 @@ public class PersonEntityTypeConfiguration : IEntityTypeConfiguration<Person>
             o =>
             {
                 o.Property(e => e.Value).HasColumnName(nameof(Person.Email).ToSnakeCase())
-                    .HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(150);
+                    .HasColumnType(nameof(SqlDbType.NVarChar)).HasMaxLength(150)
+                    .IsRequired();
                 o.HasIndex(e => e.Value);
             }
         );
