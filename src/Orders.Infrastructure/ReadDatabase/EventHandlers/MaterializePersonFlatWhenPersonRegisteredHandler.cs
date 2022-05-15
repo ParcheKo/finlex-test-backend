@@ -28,11 +28,11 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
             PersonId = notification.PersonId,
             Email = notification.Email,
             Name = notification.Name,
-            OrderCount = 1,
+            OrderCount = 0,
             TotalShopping = 0,
-            FirstShoppingDate = notification.OccurredOn,
-            LastShoppingDate = notification.OccurredOn,
-            HighestOrderTotalPrice = null,
+            FirstShoppingDate = notification.OccurredOn.Date,
+            LastShoppingDate = notification.OccurredOn.Date,
+            HighestOrderTotalPrice = 0,
         };
 
         await _readDbContext.PersonFlatMaterializedView.InsertOneAsync(

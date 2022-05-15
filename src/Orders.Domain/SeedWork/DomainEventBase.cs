@@ -7,7 +7,7 @@ public class DomainEventBase : IDomainEvent
     protected DomainEventBase()
     {
         Id = new Guid();
-        OccurredOn = DateTime.Now;
+        OccurredOn = DateTime.UtcNow;
     }
 
     public Guid Id { get; }

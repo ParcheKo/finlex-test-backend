@@ -30,14 +30,14 @@ public class MaterializePersonFlatWhenOrderRegisteredHandler : INotificationHand
 
         person.OrderCount++;
         person.TotalShopping += notification.TotalPrice;
-        person.LastShoppingDate = notification.OrderDate;
-        if (notification.TotalPrice > person.HighestOrderTotalPrice)
+        person.LastShoppingDate = notification.OrderDate.Date;
+        if (notification.TotalPrice > (person.HighestOrderTotalPrice ?? 0))
         {
             person.HighestOrderTotalPrice = notification.TotalPrice;
         }
 
         await _readDbContext.PersonFlatMaterializedView.ReplaceOneAsync(
-            p => p.PersonId == person.Id,
+            p => p.PersonId == person.PersonId,
             person,
             cancellationToken: cancellationToken
         );
