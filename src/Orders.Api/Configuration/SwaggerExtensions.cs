@@ -44,6 +44,7 @@ internal static class SwaggerExtensions
                     "/swagger/v1/swagger.json",
                     "Finlex Orders API V1"
                 );
+                c.RoutePrefix = string.Empty;
             }
         );
 
