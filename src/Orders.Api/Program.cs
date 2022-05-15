@@ -24,6 +24,10 @@ public class Program
                     "Microsoft",
                     LogEventLevel.Information
                 )
+                .MinimumLevel.Override(
+                    "Quartz",
+                    LogEventLevel.Warning
+                )
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
                 .WriteTo.Seq("http://localhost:5341")
