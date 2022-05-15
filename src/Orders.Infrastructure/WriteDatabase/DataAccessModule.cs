@@ -8,7 +8,7 @@ using Orders.Domain.SeedWork;
 using Orders.Infrastructure.Domain;
 using Orders.Infrastructure.Domain.Orders;
 using Orders.Infrastructure.Domain.Persons;
-using Orders.Infrastructure.SeedWork;
+using Orders.Infrastructure.Helpers;
 
 namespace Orders.Infrastructure.WriteDatabase;
 

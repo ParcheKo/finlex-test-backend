@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Orders.Domain.SeedWork;
 
-namespace Orders.Infrastructure.SeedWork;
+namespace Orders.Infrastructure.Helpers;
 
 /// <summary>
 ///     Based on

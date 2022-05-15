@@ -19,7 +19,7 @@ public class MediatorModule : Module
     {
         builder.RegisterSource(
             new ScopedContravariantRegistrationSource(
-                // typeof(IRequestHandler<>), // isn't it required for command handlers without result??
+                // typeof(IRequestHandler<>), // todo: isn't it required for command handlers without result??
                 typeof(IRequestHandler<,>),
                 typeof(INotificationHandler<>),
                 typeof(IValidator<>)

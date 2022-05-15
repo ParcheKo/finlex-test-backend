@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Orders.Domain.SeedWork;
 
-namespace Orders.Infrastructure.SeedWork;
+namespace Orders.Infrastructure.Helpers;
 
 public class TypedIdValueConverter<TTypedIdValue> : ValueConverter<TTypedIdValue, Guid>
     where TTypedIdValue : TypedIdValueBase

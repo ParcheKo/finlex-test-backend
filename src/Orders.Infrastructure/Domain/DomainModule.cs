@@ -10,12 +10,5 @@ public class DomainModule : Module
         //     .As<IPersonEmailUniquenessChecker>()
         //     .InstancePerLifetimeScope();
         //
-        // builder.RegisterType<OrderNoUniquenessChecker>()
-        //     .As<IOrderNoUniquenessChecker>()
-        //     .InstancePerLifetimeScope();
-
-        // builder.RegisterType<ForeignExchange>()
-        //     .As<IForeignExchange>()
-        //     .InstancePerLifetimeScope();
     }
 }
