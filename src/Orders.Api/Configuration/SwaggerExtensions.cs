@@ -22,7 +22,6 @@ internal static class SwaggerExtensions
                     }
                 );
 
-                // todo: no description set yet for api controller actions.
                 // var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 // var commentsFileName = Assembly.GetExecutingAssembly().GetName().Name + ".XML";
                 // var commentsFile = Path.Combine(baseDirectory, commentsFileName);

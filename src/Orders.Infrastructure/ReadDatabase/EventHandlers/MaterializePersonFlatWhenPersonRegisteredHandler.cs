@@ -30,8 +30,8 @@ public class MaterializePersonFlatWhenPersonRegisteredHandler : INotificationHan
             Name = notification.Name,
             OrderCount = 0,
             TotalShopping = 0,
-            FirstShoppingDate = notification.OccurredOn.Date,
-            LastShoppingDate = notification.OccurredOn.Date,
+            FirstShoppingDate = notification.OccurredOn,
+            LastShoppingDate = notification.OccurredOn,
             HighestOrderTotalPrice = 0,
         };
 

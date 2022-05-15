@@ -30,7 +30,7 @@ public class MaterializePersonFlatWhenOrderRegisteredHandler : INotificationHand
 
         person.OrderCount++;
         person.TotalShopping += notification.TotalPrice;
-        person.LastShoppingDate = notification.OrderDate.Date;
+        person.LastShoppingDate = notification.OrderDate;
         if (notification.TotalPrice > (person.HighestOrderTotalPrice ?? 0))
         {
             person.HighestOrderTotalPrice = notification.TotalPrice;
