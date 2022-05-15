@@ -140,6 +140,10 @@ Let's take it for a spin :-)
    ```
 API and swagger documentation can now be accessed on http://localhost:5101.
 
+[//]: # (todo)
+[//]: # (Setup using docker)
+[//]: # (docker build -t finlex-task-orders-api:0.1.0 -f .\Orders.Api\Dockerfile .)
+
 ## Usage
 
 ### RESTful API collections
