@@ -4,7 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using Orders.Domain.SeedWork;
 
-namespace Orders.UnitTests.SeedWork;
+namespace Orders.UnitTests.Helpers;
 
 public abstract class TestBase
 {

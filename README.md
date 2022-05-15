@@ -59,9 +59,11 @@ both in domain logic and application load. Among them are :
 * Swagger
 * FluentValidation
 * EFCore.NamingConventions
+* Hellang.Middleware.ProblemDetails
 * Humanizer.Core
 * NUnit
 * NSubstitute
+* FluentAssertions
 
 
 ## Getting Started

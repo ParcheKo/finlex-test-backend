@@ -21,11 +21,6 @@ internal static class SwaggerExtensions
                             "A simple ASP.NET DDD/CQRS example implemented based on the task definition provided by Mr. Shahrestani"
                     }
                 );
-
-                // var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                // var commentsFileName = Assembly.GetExecutingAssembly().GetName().Name + ".XML";
-                // var commentsFile = Path.Combine(baseDirectory, commentsFileName);
-                // options.IncludeXmlComments(commentsFile);
             }
         );
 

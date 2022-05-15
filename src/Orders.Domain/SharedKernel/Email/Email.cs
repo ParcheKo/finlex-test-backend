@@ -5,6 +5,7 @@ namespace Orders.Domain.SharedKernel.Email;
 
 public class Email : ValueObject
 {
+    // todo : write Email unit tests
     public string Value { get; private set; }
 
     private Email(string value)

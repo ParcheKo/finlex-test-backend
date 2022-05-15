@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Orders.Domain.SeedWork;
 
-namespace Orders.Api.SeedWork;
+namespace Orders.Api.Helpers;
 
 public class BusinessRuleValidationExceptionProblemDetails : ProblemDetails
 {

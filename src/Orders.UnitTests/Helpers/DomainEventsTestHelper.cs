@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Orders.Domain.SeedWork;
 
-namespace Orders.UnitTests.SeedWork;
+namespace Orders.UnitTests.Helpers;
 
 public class DomainEventsTestHelper
 {

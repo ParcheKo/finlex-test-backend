@@ -2,7 +2,7 @@
 using Orders.Domain.Persons;
 using Orders.Domain.Persons.Rules;
 using Orders.Domain.SharedKernel.Email;
-using Orders.UnitTests.SeedWork;
+using Orders.UnitTests.Helpers;
 
 namespace Orders.UnitTests;
 

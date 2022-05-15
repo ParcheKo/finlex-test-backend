@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Orders.Application.Configuration.Validation;
 
-namespace Orders.Api.SeedWork;
+namespace Orders.Api.Helpers;
 
 public class InvalidCommandProblemDetails : ProblemDetails
 {

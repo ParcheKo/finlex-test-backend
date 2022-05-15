@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Orders.Api.Configuration;
-using Orders.Api.SeedWork;
+using Orders.Api.Helpers;
 using Orders.Application.Configuration;
 using Orders.Application.Configuration.Validation;
 using Orders.Domain.SeedWork;
@@ -25,7 +25,6 @@ namespace Orders.Api;
 
 public class Startup
 {
-
     private readonly ILogger _logger;
 
     public Startup(
@@ -36,7 +35,6 @@ public class Startup
         Configuration = configuration;
         Environment = environment;
         _logger = ConfigureLogger();
-        _logger.Information("Logger configured");
     }
 
     public IConfiguration Configuration { get; }
@@ -53,7 +51,8 @@ public class Startup
             {
                 options.AddPolicy(
                     "CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                    builder => builder
+                        .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                 );
@@ -75,12 +74,12 @@ public class Startup
         );
 
         services.AddHttpContextAccessor();
-        
+
         var serviceProvider = services.BuildServiceProvider();
 
         IExecutionContextAccessor executionContextAccessor =
             new ExecutionContextAccessor(serviceProvider.GetService<IHttpContextAccessor>());
-        
+
         var emailsSettings = appConfiguration.EmailSettings;
 
         return ApplicationStartup.Initialize(
@@ -100,32 +99,32 @@ public class Startup
     )
     {
         app.UseSerilogRequestLogging();
-        
+
         app.UseMiddleware<CorrelationMiddleware>();
-        
+
         app.UseProblemDetails();
 
         app.UseRouting();
 
         app.UseCors("CorsPolicy");
 
-        app.UseEndpoints(
-            endpoints =>
-            {
-                endpoints.MapControllers();
-            }
-        );
+        app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
         app.UseSwaggerDocumentation();
 
         if (env.EnvironmentName == "Docker" || env.EnvironmentName == Environments.Development)
         {
-            using var serviceScope = app.ApplicationServices.CreateScope();
-            var context = serviceScope.ServiceProvider.GetService<OrdersContext>()!;
-            // just in case we wanna apply at runtime in dev env
-            // var hasPendingMigrations = context.Database.GetPendingMigrations().Any();
-            // context.Database.Migrate();
+            MigrateWriteDatabase(app);
         }
+    }
+
+    private static void MigrateWriteDatabase(IApplicationBuilder app)
+    {
+        // just in case we wanna apply at runtime in dev env
+        using var serviceScope = app.ApplicationServices.CreateScope();
+        var context = serviceScope.ServiceProvider.GetService<OrdersContext>()!;
+        // var hasPendingMigrations = context.Database.GetPendingMigrations().Any();
+        // context.Database.Migrate();
     }
 
     private static ILogger ConfigureLogger()
@@ -134,10 +133,6 @@ public class Startup
             .Enrich.FromLogContext()
             .WriteTo.Console(
                 outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{Context}] {Message:lj}{NewLine}{Exception}"
-            )
-            .WriteTo.RollingFile(
-                new CompactJsonFormatter(),
-                "logs/logs"
             )
             .CreateLogger();
     }

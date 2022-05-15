@@ -13,10 +13,4 @@
     <ProjectReference Include="..\Orders.Domain\Orders.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Orders\DomainServices" />
-    <Folder Include="Persons\DomainServices" />
-    <Folder Include="Persons\IntegrationHandlers" />
-  </ItemGroup>
-
 </Project>

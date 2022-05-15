@@ -5,7 +5,7 @@ using Orders.Domain.Orders;
 using Orders.Domain.Orders.Events;
 using Orders.Domain.Orders.Rules;
 using Orders.Domain.SharedKernel.Email;
-using Orders.UnitTests.SeedWork;
+using Orders.UnitTests.Helpers;
 
 namespace Orders.UnitTests;
 
