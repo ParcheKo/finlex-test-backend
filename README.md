@@ -49,7 +49,6 @@ both in domain logic and application load. Among them are :
 * Repository
 
 
-
 ### Built With
 
 * .NET
@@ -61,6 +60,8 @@ both in domain logic and application load. Among them are :
 * FluentValidation
 * EFCore.NamingConventions
 * Humanizer.Core
+* NUnit
+* NSubstitute
 
 
 ## Getting Started
