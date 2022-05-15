@@ -38,7 +38,6 @@ public class MaterializeOrderFlatWhenOrderRegisteredHandler : INotificationHandl
             Total = notification.Total,
             Price = notification.Price,
             TotalPrice = notification.TotalPrice,
-            PersonName = person.Name,
         };
 
         await _readDbContext.OrderFlatMaterializedView.InsertOneAsync(

@@ -40,7 +40,6 @@ internal sealed class GetOrdersByEmailQueryHandler : IQueryHandler<GetOrdersByEm
                 Total = p.Total,
                 Price = p.Price,
                 TotalPrice = p.TotalPrice,
-                PersonName = p.PersonName
             }
         ).ToList();
     }
