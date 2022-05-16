@@ -156,6 +156,11 @@ API and swagger documentation can now be accessed on http://localhost:5101.
     * GET /persons/{email}/orders
     * GET /persons
 
+
+### Todos
+
+- [ ] Improve error description when a command validation fails.
+
 ## Contact
 
 Amir A. Rezaei P. - [@amir_parcheko](https://twitter.com/amir_parcheko) - amir.a.rezaei.p@gmail.com
