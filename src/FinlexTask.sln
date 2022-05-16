@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orders", "Orders", "{0CC840
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 		nuget.config = nuget.config
-		mongo.yaml = mongo.yaml
+		infra.yaml = infra.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Application", "Orders.Application\Orders.Application.csproj", "{E7A6F2BC-DB66-4163-B010-B3D8230B4CEB}"
