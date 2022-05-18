@@ -38,6 +38,7 @@ public class MaterializeOrderFlatWhenOrderRegisteredHandler : INotificationHandl
             Total = notification.Total,
             Price = notification.Price,
             TotalPrice = notification.TotalPrice,
+            VeryExpensive = notification.TotalPrice > 1_000_000
         };
 
         await _readDbContext.OrderFlatMaterializedView.InsertOneAsync(

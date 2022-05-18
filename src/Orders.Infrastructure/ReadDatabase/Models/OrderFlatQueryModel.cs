@@ -13,4 +13,5 @@ public class OrderFlatQueryModel
     public int Total { get; set; }
     public decimal Price { get; set; }
     public decimal TotalPrice { get; set; }
+    public bool VeryExpensive { get; set; }
 }
