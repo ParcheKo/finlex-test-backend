@@ -45,6 +45,7 @@ public class Startup
     {
         var appConfiguration = Configuration.Get<AppConfiguration>();
         services.AddSingleton(appConfiguration);
+        services.AddSingleton(appConfiguration.DatabaseConfiguration);
 
         services.AddCors(
             options =>
@@ -84,7 +85,7 @@ public class Startup
 
         return ApplicationStartup.Initialize(
             services,
-            appConfiguration,
+            appConfiguration.DatabaseConfiguration,
             null,
             emailsSettings,
             _logger,

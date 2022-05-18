@@ -12,9 +12,9 @@ public class ReadDbContext
 
     public ReadDbContext(AppConfiguration appConfiguration)
     {
-        var mongoClient = new MongoClient(appConfiguration.ConnectionStrings.MongoConnectionString);
-        _database = mongoClient.GetDatabase(appConfiguration.ConnectionStrings.MongoDatabaseName);
-        ConfigureDatabaseNamingConvention(appConfiguration.DatabaseNamingConvention);
+        var mongoClient = new MongoClient(appConfiguration.DatabaseConfiguration.ConnectionStrings.MongoConnectionString);
+        _database = mongoClient.GetDatabase(appConfiguration.DatabaseConfiguration.ConnectionStrings.MongoDatabaseName);
+        ConfigureDatabaseNamingConvention(appConfiguration.DatabaseConfiguration.DatabaseNamingConvention);
         // todo: a bug must be solved -> 
         // Map();
     }

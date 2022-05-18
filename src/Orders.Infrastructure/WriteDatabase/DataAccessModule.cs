@@ -14,13 +14,13 @@ namespace Orders.Infrastructure.WriteDatabase;
 
 public class DataAccessModule : Module
 {
-    private readonly AppConfiguration _appConfiguration;
+    private readonly DatabaseConfiguration _databaseConfiguration;
     private readonly string _databaseConnectionString;
 
-    public DataAccessModule(AppConfiguration appConfiguration)
+    public DataAccessModule(DatabaseConfiguration databaseConfiguration)
     {
-        _appConfiguration = appConfiguration;
-        _databaseConnectionString = appConfiguration.ConnectionStrings.SqlServerConnectionString;
+        _databaseConfiguration = databaseConfiguration;
+        _databaseConnectionString = databaseConfiguration.ConnectionStrings.SqlServerConnectionString;
     }
 
     protected override void Load(ContainerBuilder builder)
@@ -58,7 +58,7 @@ public class DataAccessModule : Module
                             _databaseConnectionString,
                             b => b.MigrationsAssembly(typeof(OrdersContext).Assembly.GetName().Name)
                         )
-                        .ConfigureDatabaseNamingConvention(_appConfiguration.DatabaseNamingConvention);
+                        .ConfigureDatabaseNamingConvention(_databaseConfiguration.DatabaseNamingConvention);
                     dbContextOptionsBuilder
                         .ReplaceService<IValueConverterSelector, StronglyTypedIdValueConverterSelector>();
 

@@ -28,7 +28,7 @@ public class ApplicationStartup
 {
     public static IServiceProvider Initialize(
         IServiceCollection services,
-        AppConfiguration appConfiguration,
+        DatabaseConfiguration databaseConfiguration,
         IEmailSender emailSender,
         EmailSettings emailSettings,
         ILogger logger,
@@ -38,7 +38,7 @@ public class ApplicationStartup
     {
         if (runQuartz)
             StartQuartz(
-                appConfiguration,
+                databaseConfiguration,
                 emailSettings,
                 logger,
                 executionContextAccessor
@@ -47,7 +47,7 @@ public class ApplicationStartup
 
         var serviceProvider = CreateAutofacServiceProvider(
             services,
-            appConfiguration,
+            databaseConfiguration,
             emailSender,
             emailSettings,
             logger,
@@ -59,7 +59,7 @@ public class ApplicationStartup
 
     private static IServiceProvider CreateAutofacServiceProvider(
         IServiceCollection services,
-        AppConfiguration appConfiguration,
+        DatabaseConfiguration databaseConfiguration,
         IEmailSender emailSender,
         EmailSettings emailSettings,
         ILogger logger,
@@ -71,7 +71,7 @@ public class ApplicationStartup
         container.Populate(services);
 
         container.RegisterModule(new LoggingModule(logger));
-        container.RegisterModule(new DataAccessModule(appConfiguration));
+        container.RegisterModule(new DataAccessModule(databaseConfiguration));
         container.RegisterModule(new QueryModule());
         container.RegisterModule(new MediatorModule());
         container.RegisterModule(new DomainModule());
@@ -102,7 +102,7 @@ public class ApplicationStartup
     }
     
     private static void StartQuartz(
-        AppConfiguration appConfiguration,
+        DatabaseConfiguration databaseConfiguration,
         EmailSettings emailSettings,
         ILogger logger,
         IExecutionContextAccessor executionContextAccessor
@@ -116,7 +116,7 @@ public class ApplicationStartup
         container.RegisterModule(new LoggingModule(logger));
         container.RegisterModule(new QuartzModule());
         container.RegisterModule(new MediatorModule());
-        container.RegisterModule(new DataAccessModule(appConfiguration));
+        container.RegisterModule(new DataAccessModule(databaseConfiguration));
         container.RegisterModule(new QueryModule());
         container.RegisterModule(new EmailModule(emailSettings));
         container.RegisterModule(new ProcessingModule());
@@ -126,8 +126,8 @@ public class ApplicationStartup
             c =>
             {
                 var dbContextOptionsBuilder = new DbContextOptionsBuilder<OrdersContext>();
-                dbContextOptionsBuilder.UseSqlServer(appConfiguration.ConnectionStrings.SqlServerConnectionString)
-                    .ConfigureDatabaseNamingConvention(appConfiguration.DatabaseNamingConvention);
+                dbContextOptionsBuilder.UseSqlServer(databaseConfiguration.ConnectionStrings.SqlServerConnectionString)
+                    .ConfigureDatabaseNamingConvention(databaseConfiguration.DatabaseNamingConvention);
                 dbContextOptionsBuilder
                     .ReplaceService<IValueConverterSelector, StronglyTypedIdValueConverterSelector>();
 
