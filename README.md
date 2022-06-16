@@ -163,7 +163,8 @@ API and swagger documentation can now be accessed on http://localhost:5101.
 - [ ] Add information to README
   - [ ] About app containerization.
   - [ ] About using infra.yaml file for setting up infrastructure services like mssql, mongo, and seq.
-
+- [ ] Incorporate materializers for handling businesses related to populating read-model data.
+- [ ] Check Request-Id header in log properties.
 
 ## Contact
 
